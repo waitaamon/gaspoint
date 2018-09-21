@@ -13,5 +13,7 @@ interface UserRepository
 {
     public function managers();
 
+    public function managersCount();
+
     public function unassignedManagers();
 }

@@ -29,6 +29,12 @@ abstract class RepositoryAbstract implements RepositoryInterface, CriteriaInterf
         return $this->entity->get();
     }
 
+    public function count()
+    {
+
+        return $this->entity->count();
+    }
+
     public function find($id)
     {
 
