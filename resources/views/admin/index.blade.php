@@ -2,6 +2,6 @@
 
 @section('admin.content')
 
-    Admin home
+    Welcome to Gas Point, <strong>{{ auth()->user()->name }}</strong>
 
 @endsection

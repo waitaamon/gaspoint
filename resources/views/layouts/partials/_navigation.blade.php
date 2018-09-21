@@ -2,7 +2,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+                <h1 class="title"><span class="fa fa-fire"></span> GAS POINT</h1>
             </a>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">

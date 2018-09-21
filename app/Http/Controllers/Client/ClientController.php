@@ -52,7 +52,7 @@ class ClientController extends Controller
 
         $client = $this->clients->create([
             'station_id' => $request->station,
-            'phone' => $request->phone
+            'phone' => '+254'.substr($request->phone, 1)
         ]);
 
         return redirect()->route('client.index')

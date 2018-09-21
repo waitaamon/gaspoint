@@ -63,7 +63,7 @@ class StatsComposer
 
         $view->with('managers', $this->users->managersCount());
 
-        $view->with('messages', $this->stations->count());
+        $view->with('messages', $this->messages->count());
 
         $view->with('clients', $this->stations->count());
 

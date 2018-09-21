@@ -11,5 +11,5 @@ namespace App\Repositories\Contracts;
 
 interface StationRepository
 {
-    public function createMessage(array  $data, $id);
+    public function attachMessage($stationId, $messageId);
 }

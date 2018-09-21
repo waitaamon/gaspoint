@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Landing - Free Bulma template</title>
+    <title>Gas Point</title>
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
@@ -41,20 +41,10 @@
     <div class="hero-head">
         <nav class="navbar">
             <div class="container">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="/">
-                        Gas Point
-                    </a>
-                    <span class="navbar-burger burger" data-target="navbarMenu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                </div>
                 <div id="navbarMenu" class="navbar-menu">
                     <div class="navbar-end">
                         <span class="navbar-item">
-                            <a class="button is-white is-outlined" href="/login">
+                            <a class="is-link is-white is-outlined" href="/login">
                                 <span>Login</span>
                             </a>
                         </span>
@@ -68,10 +58,15 @@
         <div class="container has-text-centered">
             <div class="column is-6 is-offset-3">
                 <h1 class="title">
-                    Gas Point
+                    <span class="fa fa-fire"></span>GAS POINT
                 </h1>
+                <hr>
                 <h2 class="subtitle">
-                    this is the best software platform for running an internet business. We handle billions of dollars every year for forward-thinking businesses around the world.
+                    We supply gases in bulk onsite and in cylinders. We also do cylinder refilling. Our Products continues to strive to provide safer, more economical, and more reliable long-term supplies of gas.
+                </h2>
+                <hr>
+                <h2 class="subtitle">
+                    <span class="fa fa-phone"> +254 712 458 475 / +254 712 458 475</span>&nbsp; &nbsp; &nbsp; <span class="fa fa-envelope"> sales@gaspoint.co.ke</span>
                 </h2>
             </div>
         </div>

@@ -51,7 +51,7 @@ class StationController extends Controller
         $station = $this->stations->create([
             'user_id' => $request->manager,
             'name' => $request->name,
-            'phone' => $request->phone
+            'phone' => '+254'.substr($request->phone, 1)
         ]);
 
         return redirect()->route('station.index')

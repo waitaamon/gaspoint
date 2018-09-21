@@ -14,7 +14,7 @@
                 <div class="field">
                     <label for="phone" class="label">phone</label>
                     <p class="control">
-                        <input type="text" name="phone" id="phone" class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" value="{{ old('phone') ? old('phone') : '' }}">
+                        <input type="text" name="phone" id="phone" class="input {{ $errors->has('phone') ? 'is-danger' : '' }}" value="{{ old('phone') ? old('phone') : '' }}" placeholder="eg 0722555666">
                     </p>
 
                     @if($errors->has('phone'))

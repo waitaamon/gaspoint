@@ -46,7 +46,7 @@ class ManagerController extends Controller
         $manager = $this->users->create([
             'name' => $request->name,
             'email' => strtolower($email),
-            'phone' => $request->phone,
+            'phone' => '+254'.substr($request->phone, 1),
             'password' => bcrypt($request->phone)
         ]);
 

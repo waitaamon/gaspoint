@@ -19,7 +19,7 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
         <li>
-            <a href="{{ route('admin.show') }}">Account details</a>
+            <a href="{{ route('admin.show') }}">Account Details</a>
         </li>
         <li>
             <a href="{{ route('admin.change.password') }}">Change Password</a>

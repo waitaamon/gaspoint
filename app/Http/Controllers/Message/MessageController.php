@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Message;
 
 use App\DataTables\MessagesDataTable;
 use App\Http\Requests\MessageRequest;
+use App\Jobs\MessageClient;
 use App\Repositories\Contracts\MessageRepository;
 use App\Repositories\Contracts\StationRepository;
 use Illuminate\Http\Request;
@@ -52,26 +53,28 @@ class MessageController extends Controller
 
         if ($request->station === 'all') {
 
+            $message = $this->messages->create([
+                'message' => $request->message
+            ]);
+
             $stations = $this->stations->all();
 
             foreach ($stations as $station) {
 
-                $this->stations->createMessage(
-                    [
-                        'message' => $request->message
-                    ],
-                    $station->id
-                );
+                $this->stations->attachMessage($station->id, $message->id);
+
+                MessageClient::dispatch($request->message, $station->id);
             }
 
         } else {
 
-            $this->stations->createMessage(
-                [
-                    'message' => $request->message
-                ],
-                $request->station
-            );
+            $message = $this->messages->create([
+                'message' => $request->message
+            ]);
+
+            $this->stations->attachMessage($request->station, $message->id);
+
+            MessageClient::dispatch($request->message, $request->station);
         }
 
         return redirect()->route('message.index')
