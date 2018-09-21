@@ -21,3 +21,7 @@
     </section>
 
 @endsection
+
+@section('script')
+    @yield('scripts')
+@endsection

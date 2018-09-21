@@ -22,10 +22,10 @@
             <div class="navbar-start"></div>
             <div class="navbar-end">
                 @if(auth()->check())
-                    <a class="navbar-item" href="{{ route('account') }}" >
+                    <a class="navbar-item" href="{{ route('admin') }}" >
                         Your Account
                     </a>
-                    <a href="#" class="nav-item" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                    <a href="#" class="navbar-item" onclick="event.preventDefault(); document.getElementById('logout').submit();">
                         Sign out
                     </a>
                 @endif

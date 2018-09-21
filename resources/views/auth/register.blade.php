@@ -38,6 +38,19 @@
                             @endif
 
                         </div>
+                        <div class="field">
+                            <label for="phone" class="label">Phone</label>
+                            <p class="control">
+                                <input type="text" name="phone" id="phone" placeholder="Your phone" class="input {{$errors->has('phone') ? 'is-danger' : ''}}" value="{{ old('phone') }}">
+                            </p>
+
+                            @if($errors->has('phone'))
+                                <p class="help is-danger">
+                                    {{ $errors->first('phone') }}
+                                </p>
+                            @endif
+
+                        </div>
 
                         <div class="field">
                             <label for="password" class="label">Choose a Password</label>

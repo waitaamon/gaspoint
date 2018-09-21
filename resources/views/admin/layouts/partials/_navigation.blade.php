@@ -1,12 +1,18 @@
 <aside class="menu">
-    <p class="menu-label">Manage Files</p>
+    <p class="menu-label">Manage Clients</p>
 
     <ul class="menu-list">
         <li>
-            <a href="{{ route('admin.files.new.index') }}">Approve new Files</a>
+            <a href="">Messages</a>
         </li>
         <li>
-            <a href="{{ route('admin.files.updated.index') }}">Approve Updated Files</a>
+            <a href="">Clients</a>
+        </li>
+        <li>
+            <a href="">Station</a>
+        </li>
+        <li>
+            <a href="{{ route('manager.index') }}">Managers</a>
         </li>
     </ul>
 

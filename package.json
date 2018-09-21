@@ -18,6 +18,8 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "bulma": "^0.7.1"
+        "bulma": "^0.7.1",
+        "datatables.net": "^1.10.19",
+        "datatables.net-dt": "^1.10.19"
     }
 }
