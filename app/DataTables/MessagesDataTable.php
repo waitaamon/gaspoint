@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Repositories\Contracts\StationRepository;
-use App\Repositories\Eloquent\Criteria\EagerLoad;
+use App\Models\Message;
+use App\Repositories\Contracts\MessageRepository;
 use Yajra\DataTables\Services\DataTable;
 
-class StationsDataTable extends DataTable
+class MessagesDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,19 +18,20 @@ class StationsDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('action', function ($model) {
-                return '<a href="station/edit/' . $model->id . '" class="button is-small is-primary">Edit </a>';
+                return '<a href="message/show/' . $model->id . '" class="button is-small is-primary">Show Message </a>';
             });
+
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param StationRepository $stations
+     * @param MessageRepository $messages
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(StationRepository $stations)
+    public function query(MessageRepository $messages)
     {
-        return $stations->withCriteria(new EagerLoad(['user']))->all();
+        return $messages->all();
     }
 
     /**
@@ -61,25 +62,15 @@ class StationsDataTable extends DataTable
                 'data' => 'id'
             ],
             [
-                'name' => 'name',
-                'title' => 'Name',
-                'data' => 'name'
-            ],
-            [
-                'name' => 'user.name',
-                'title' => 'Manager',
-                'data' => 'user.name'
-            ],
-            [
-                'name' => 'phone',
-                'title' => 'Phone',
-                'data' => 'phone'
-            ],
-            [
                 'name' => 'created_at',
-                'title' => 'Registered on',
+                'title' => 'Sent On',
                 'data' => 'created_at'
             ],
+            [
+                'name' => 'message',
+                'title' => 'Message',
+                'data' => 'message'
+            ]
         ];
     }
 
@@ -90,6 +81,6 @@ class StationsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Stations_' . date('YmdHis');
+        return 'Messages_' . date('YmdHis');
     }
 }

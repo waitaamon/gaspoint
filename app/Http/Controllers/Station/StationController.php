@@ -6,6 +6,7 @@ use App\DataTables\StationsDataTable;
 use App\Http\Requests\StationRequest;
 use App\Repositories\Contracts\StationRepository;
 use App\Http\Controllers\Controller;
+use App\Repositories\Contracts\UserRepository;
 
 class StationController extends Controller
 {
@@ -13,15 +14,20 @@ class StationController extends Controller
      * @var StationRepository
      */
     protected $stations;
+    /**
+     * @var UserRepository
+     */
+    protected $users;
 
     /**
      * StationController constructor.
      * @param StationRepository $stations
      */
-    public function __construct(StationRepository $stations)
+    public function __construct(StationRepository $stations, UserRepository $users)
     {
 
         $this->stations = $stations;
+        $this->users = $users;
     }
 
     public function index(StationsDataTable $dataTable)
@@ -33,17 +39,17 @@ class StationController extends Controller
 
     public function create()
     {
+        $managers = $this->users->unassignedManagers();
 
-        return view('admin.stations.create');
+        return view('admin.stations.create', compact('managers'));
     }
 
     public function store(StationRequest $request)
     {
-
         //authorize
 
         $station = $this->stations->create([
-            'user_id' => $request->user_id,
+            'user_id' => $request->manager,
             'name' => $request->name,
             'phone' => $request->phone
         ]);
@@ -58,7 +64,9 @@ class StationController extends Controller
 
         $station = $this->stations->find($id);
 
-        return view('admin.station.edit', compact('station'));
+        $managers = $this->users->unassignedManagers();
+
+        return view('admin.stations.edit', compact(['station', 'managers']));
     }
 
     public function update(StationRequest $request, $id)
@@ -67,7 +75,7 @@ class StationController extends Controller
         //authorize
 
         $manager = $this->stations->update($id, [
-            'user_id' => $request->user_id,
+            'user_id' => $request->manager,
             'name' => $request->name,
             'phone' => $request->phone
         ]);
@@ -78,12 +86,11 @@ class StationController extends Controller
 
     public function destroy($id)
     {
-
         //authorize
 
         $this->stations->delete($id);
 
-        return redirect()->route('manager.index')
+        return redirect()->route('station.index')
             ->withSuccess('station successfully deleted.');
     }
 }

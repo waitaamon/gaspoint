@@ -2,11 +2,12 @@
 
 namespace App\DataTables;
 
-use App\Repositories\Contracts\StationRepository;
+use App\Repositories\Contracts\ClientRepository;
 use App\Repositories\Eloquent\Criteria\EagerLoad;
+use App\User;
 use Yajra\DataTables\Services\DataTable;
 
-class StationsDataTable extends DataTable
+class ClientsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,19 +19,19 @@ class StationsDataTable extends DataTable
     {
         return datatables($query)
             ->addColumn('action', function ($model) {
-                return '<a href="station/edit/' . $model->id . '" class="button is-small is-primary">Edit </a>';
+                return '<a href="client/edit/' . $model->id . '" class="button is-small is-primary">Edit </a>';
             });
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param StationRepository $stations
+     * @param ClientRepository $clients
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(StationRepository $stations)
+    public function query(ClientRepository $clients)
     {
-        return $stations->withCriteria(new EagerLoad(['user']))->all();
+        return $clients->withCriteria(new EagerLoad(['station']))->all();
     }
 
     /**
@@ -61,14 +62,9 @@ class StationsDataTable extends DataTable
                 'data' => 'id'
             ],
             [
-                'name' => 'name',
-                'title' => 'Name',
-                'data' => 'name'
-            ],
-            [
-                'name' => 'user.name',
-                'title' => 'Manager',
-                'data' => 'user.name'
+                'name' => 'station.name',
+                'title' => 'Station',
+                'data' => 'station.name'
             ],
             [
                 'name' => 'phone',
@@ -90,6 +86,6 @@ class StationsDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Stations_' . date('YmdHis');
+        return 'Clients_' . date('YmdHis');
     }
 }

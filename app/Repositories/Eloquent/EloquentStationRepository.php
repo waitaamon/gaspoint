@@ -20,4 +20,9 @@ class EloquentStationRepository extends RepositoryAbstract implements StationRep
         return Station::class;
     }
 
+    public function createMessage(array $data, $id)
+    {
+       return $this->entity->find($id)->messages()->create($data);
+
+    }
 }

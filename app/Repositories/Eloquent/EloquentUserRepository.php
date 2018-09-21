@@ -25,4 +25,9 @@ class EloquentUserRepository extends RepositoryAbstract implements UserRepositor
     {
         return $this->entity->whereIs('manager')->get();
     }
+
+    public function unassignedManagers()
+    {
+        return $this->entity->whereIs('manager')->doesntHave('station')->get();
+    }
 }

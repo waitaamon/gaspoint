@@ -22,8 +22,8 @@
             <div class="navbar-start"></div>
             <div class="navbar-end">
                 @if(auth()->check())
-                    <a class="navbar-item" href="{{ route('admin') }}" >
-                        Your Account
+                    <a class="navbar-item" href="{{ route('admin.show') }}" >
+                        {{ auth()->user()->name }}
                     </a>
                     <a href="#" class="navbar-item" onclick="event.preventDefault(); document.getElementById('logout').submit();">
                         Sign out

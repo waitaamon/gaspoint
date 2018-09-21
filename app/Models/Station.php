@@ -3,13 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Station extends Model
 {
-    use SoftDeletes;
-
-    protected $fillable = ['name', 'phone'];
+    protected $fillable = ['user_id', 'name', 'phone'];
 
     public function user() {
 

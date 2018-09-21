@@ -3,13 +3,13 @@
 
     <ul class="menu-list">
         <li>
-            <a href="">Messages</a>
+            <a href="{{ route('message.index') }}">Messages</a>
         </li>
         <li>
-            <a href="">Clients</a>
+            <a href="{{ route('client.index') }}">Clients</a>
         </li>
         <li>
-            <a href="">Station</a>
+            <a href="{{ route('station.index') }}">Station</a>
         </li>
         <li>
             <a href="{{ route('manager.index') }}">Managers</a>
@@ -19,10 +19,10 @@
     <p class="menu-label">General</p>
     <ul class="menu-list">
         <li>
-            <a href="">Your details</a>
+            <a href="{{ route('admin.show') }}">Account details</a>
         </li>
         <li>
-            <a href="">Change Password</a>
+            <a href="{{ route('admin.change.password') }}">Change Password</a>
         </li>
     </ul>
 

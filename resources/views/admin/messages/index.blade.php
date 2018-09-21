@@ -4,7 +4,7 @@
 
     <div class="columns is-mobile">
         <div class="column is-three-fifths is-offset-one-fifth">
-            <a class="button is-small is-fullwidth is-primary is-outlined"  href="{{ route('station.create') }}">Register New Station</a>
+            <a class="button is-small is-fullwidth is-primary is-outlined"  href="{{ route('message.create') }}">New Message</a>
         </div>
     </div>
 

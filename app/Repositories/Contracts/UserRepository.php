@@ -12,4 +12,6 @@ namespace App\Repositories\Contracts;
 interface UserRepository
 {
     public function managers();
+
+    public function unassignedManagers();
 }

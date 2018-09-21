@@ -4,7 +4,7 @@
 
     <div class="columns is-mobile">
         <div class="column is-three-fifths is-offset-one-fifth">
-            <a class="button is-medium is-fullwidth is-primary is-outlined"  href="{{ route('manager.create') }}">New Manager</a>
+            <a class="button is-small is-fullwidth is-primary is-outlined"  href="{{ route('manager.create') }}">Register New Manager</a>
         </div>
     </div>
 

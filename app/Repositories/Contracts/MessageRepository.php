@@ -3,13 +3,13 @@
  * Created by PhpStorm.
  * User: amon
  * Date: 9/21/18
- * Time: 9:40 AM
+ * Time: 12:27 PM
  */
 
 namespace App\Repositories\Contracts;
 
 
-interface StationRepository
+interface MessageRepository
 {
-    public function createMessage(array  $data, $id);
+
 }

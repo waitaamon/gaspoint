@@ -17,7 +17,12 @@ class ManagersDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
+            ->addColumn('station', function ($model) {
+
+                return $model->station ? $model->station->name : '';
+            })
             ->addColumn('action', function ($model) {
+
                 return '<a href="manager/edit/' . $model->id . '" class="button is-small is-primary">Edit </a>';
             });
     }
@@ -30,7 +35,7 @@ class ManagersDataTable extends DataTable
      */
     public function query(UserRepository $users)
     {
-        return $users->withCriteria(new EagerLoad(['station.name']))->managers();
+        return $users->withCriteria(new EagerLoad(['station']))->managers();
     }
 
     /**
